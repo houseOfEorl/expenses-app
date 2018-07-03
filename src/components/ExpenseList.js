@@ -2,14 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Expense from './Expense';
 
-const ExpenseList = ({ expenses }) => (
+const ExpenseList = ({ expenses, dispatch }) => (
     <table>
         <tbody>
-            <tr>
-                <th>Name</th>
-                <th>Period</th>
-                <th>Amount</th>
-            </tr>
             {expenses.map(expense => 
                 <Expense
                     key={expense.id}
@@ -25,7 +20,12 @@ ExpenseList.propTypes = {
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       date: PropTypes.string.isRequired,
-      amount: PropTypes.string.isRequired
+      amount: PropTypes.string.isRequired,
+      isCreditOrDebit: PropTypes.string.isRequired,
+      paymentCategory: PropTypes.string.isRequiredsy,
+      bank: PropTypes.string.isRequired,
+      isCreditCard: PropTypes.bool.isRequired,
+      isPaid: PropTypes.bool.isRequired
     }).isRequired).isRequired
 }
 

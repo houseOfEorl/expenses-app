@@ -6,6 +6,10 @@ export const addExpense = ( data ) => ({
     payload: data
 })
 
+export const updateExpense = ( data ) => ({
+    type: 'UPDATE_EXPENSE'
+})
+
 export const setVisibiltyFilter = filter => ({
     type: 'SET_VISIBILITY_FILTER',
     filter

@@ -12,6 +12,12 @@ class AddExpense extends Component {
         this.clearForm = this.clearForm.bind(this);
     }
 
+    handlOnChange({ target }) {
+        this.setState({
+            [target.name]: target.value
+        })
+    }
+
 
     handleOnClick(e) {
         e.preventDefault()
@@ -21,8 +27,14 @@ class AddExpense extends Component {
         let date = this.inputDate.value;
         let amount = this.inputAmount.value;
 
+        let isCreditOrDebit = this.inputIsCreditOrDebit.value;
+        let paymentCategory = this.inputPaymentCategory.value;
+        let bank = this.inputBank.value;
+        let isCreditCard = this.inputIsCreditCard.checked;
+        let isPaid = this.inputIsPaid.checked;
+
         //create object with the expense values that we will add
-        var expense = {name:name, date:date, amount:amount}
+        var expense = {name:name, date:date, amount:amount, isCreditOrDebit:isCreditOrDebit, paymentCategory:paymentCategory, bank:bank, isCreditCard:isCreditCard, isPaid:isPaid}
 
         dispatch(addExpense(expense));
 
@@ -39,13 +51,24 @@ class AddExpense extends Component {
     render() {
         return (
             <div>
-                <input ref={ node => this.inputName = node } type="text" placeholder="Name"  />
-                <input ref={ node => this.inputDate = node } type="text" placeholder="Date" />
-                <input ref={ node => this.inputAmount = node } type="number" placeholder="Amount"  />
-
-                <button type="submit" onClick={this.handleOnClick}>
-                    Add
-                </button>
+                <section>
+                    <input ref={ node => this.inputName = node } type="text" placeholder="Name"  />
+                    <input ref={ node => this.inputDate = node } type="text" placeholder="Date" />
+                    <input ref={ node => this.inputAmount = node } type="number" placeholder="Amount"  />
+                </section>
+                <section>                    
+                    <input ref={ node => this.inputIsCreditOrDebit = node } type="text" placeholder="C/D" />
+                    <input ref={ node => this.inputPaymentCategory = node } type="text" placeholder="Category" />
+                    <input ref={ node => this.inputBank = node } type="text" placeholder="Bank" />
+                </section>
+                <section>
+                    IsCreditCard? <input ref={ node => this.inputIsCreditCard = node } type="checkbox" placeholder="CreditCard" />
+                    IsPaid? <input ref={ node => this.inputIsPaid = node } type="checkbox" placeholder="IsPaid?" />
+                    <button type="submit" onClick={this.handleOnClick}>
+                        Add
+                    </button>
+                </section>
+                
             </div>
         )
     }

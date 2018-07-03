@@ -7,12 +7,21 @@ const expenses = (state = [], action) => {
                     id: action.id,
                     name: action.payload.name,
                     date: action.payload.date,
-                    amount: action.payload.amount
+                    amount: action.payload.amount,
+                    isCreditOrDebit: action.payload.isCreditOrDebit,
+                    paymentCategory: action.payload.paymentCategory,
+                    bank: action.payload.bank,
+                    isCreditCard: action.payload.isCreditCard,
+                    isPaid: action.payload.isPaid
                 }
             ];
+        case 'UPDATE_EXPENSE':
+            return state;
         default:
             return state;        
     }
 }
+
+
 
 export default expenses

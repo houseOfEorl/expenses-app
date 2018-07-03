@@ -1,11 +1,13 @@
 import { connect } from 'react-redux';
 import ExpenseList from '../components/ExpenseList'
+import { updateExpense } from '../actions';
+
 
 const getVisibleExpense = (expenses, filterPeriod, filterTypeOfExpense) => {
     return expenses;
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state , store) => ({
     expenses: getVisibleExpense(state.expenses, state.period, state.typeOfExpense)
 })
 
