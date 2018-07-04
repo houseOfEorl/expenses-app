@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Expense from './Expense';
 
-const ExpenseList = ({ expenses, dispatch }) => (
+const ExpenseList = ({ expenses, onHandleEditRowClick }) => (
     <table>
         <tbody>
             {expenses.map(expense => 
                 <Expense
-                    key={expense.id}
-                    {...expense}
+                    key = {expense.id}
+                    expense = {expense}
+                    onHandleEditRowClick = {onHandleEditRowClick}
                 />
             )}
         </tbody>
@@ -16,6 +17,7 @@ const ExpenseList = ({ expenses, dispatch }) => (
 )
 
 ExpenseList.propTypes = {
+
     expenses: PropTypes.arrayOf(PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
@@ -26,7 +28,9 @@ ExpenseList.propTypes = {
       bank: PropTypes.string.isRequired,
       isCreditCard: PropTypes.bool.isRequired,
       isPaid: PropTypes.bool.isRequired
-    }).isRequired).isRequired
+    }).isRequired).isRequired,
+
+    onHandleEditRowClick: PropTypes.func.isRequired
 }
 
 export default ExpenseList

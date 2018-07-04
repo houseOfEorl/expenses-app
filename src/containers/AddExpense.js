@@ -12,11 +12,11 @@ class AddExpense extends Component {
         this.clearForm = this.clearForm.bind(this);
     }
 
-    handlOnChange({ target }) {
-        this.setState({
-            [target.name]: target.value
-        })
-    }
+    // handlOnChange({ target }) {
+    //     this.setState({
+    //         [target.name]: target.value
+    //     })
+    // }
 
 
     handleOnClick(e) {
