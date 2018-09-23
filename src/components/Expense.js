@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 const Expense = ({ expense, onHandleEditRowClick  }) => (
     <tr>
         <td> {expense.id} </td>
-        <td> {expense.name} </td>
-        <td> {expense.date} </td>
-        <td> {expense.amount} </td>
-        <td> {expense.isCreditOrDebit} </td>
-        <td> {expense.paymentCategory} </td>
-        <td> {expense.bank} </td>
+        <td> <input type="text" value={expense.name} /> </td>
+        <td> <input type="text" value={expense.date} /> </td>
+        <td> <input type="text" value={expense.amount} /> </td>
+        <td> <input type="text" value={expense.isCreditOrDebit} />  </td>
+        <td> <input type="text" value={expense.paymentCategory} /> </td>
+        <td> <input type="text" value={expense.bank} /> </td>
         <td> <input type="checkbox" checked={expense.isCreditCard} readOnly />  </td>
         <td> <input type="checkbox" checked={expense.isPaid} readOnly />  </td>
         <td> <input type="button" onClick = {() => onHandleEditRowClick(expense.id)} value="Edit" />  </td>
