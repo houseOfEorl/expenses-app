@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Expense from './Expense';
 
 const ExpenseList = ({ expenses, onHandleEditRowClick }) => (
-    <table>
+    <table class="table">
         <tbody>
             {expenses.map(expense => 
                 <Expense

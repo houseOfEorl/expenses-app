@@ -4,20 +4,13 @@ import { addExpense } from '../actions';
 import PropTypes from 'prop-types';
 
 // const AddExpense = ({ dispatch }) => {
-class AddExpense extends Component {
+class SaveExpense extends Component {
 
     constructor(props) {
         super(props)
         this.handleOnClick = this.handleOnClick.bind(this);
         this.clearForm = this.clearForm.bind(this);
     }
-
-    // handlOnChange({ target }) {
-    //     this.setState({
-    //         [target.name]: target.value
-    //     })
-    // }
-
 
     handleOnClick(e) {
         e.preventDefault()
@@ -26,7 +19,6 @@ class AddExpense extends Component {
         let name = this.inputName.value;
         let date = this.inputDate.value;
         let amount = this.inputAmount.value;
-
         let isCreditOrDebit = this.inputIsCreditOrDebit.value;
         let paymentCategory = this.inputPaymentCategory.value;
         let bank = this.inputBank.value;
@@ -74,9 +66,9 @@ class AddExpense extends Component {
     }
 }
 
-AddExpense.propTypes = {
+SaveExpense.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
 
-export default connect()(AddExpense)
+export default connect()(SaveExpense)

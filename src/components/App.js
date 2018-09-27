@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import AddExpense from '../containers/AddExpense';
+import SaveExpense from '../containers/SaveExpense';
 import VisibleExpenseList from '../containers/VisibleExpenseList';
+import ExpenseModal from '../components/ExpenseModal';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddExpense />
+        <SaveExpense />
+        {/* <ExpenseModal /> */}
         <VisibleExpenseList />
       </div>
     );
