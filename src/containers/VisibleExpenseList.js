@@ -2,13 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ExpenseList from '../components/ExpenseList'
 import { updateExpense } from '../actions';
-
+import PropTypes from 'prop-types';
 
 class VisibleExpenseList extends Component {
 
 
     handleEditRowClick = ( printThis ) => {
-        alert(printThis);
+        const { dispatch } = this.props;
+        dispatch(updateExpense(printThis));
     }
     
     render() {
@@ -33,6 +34,10 @@ const mapStateToProps = (state , store) => ({
 const mapDispatchToProps = dispatch => ({
     dispatch
 })
+
+VisibleExpenseList.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
 
 export default connect (
     mapStateToProps,
