@@ -6,9 +6,9 @@ export const addExpense = ( data ) => ({
     payload: data
 })
 
-export const updateExpense = id => ({
+export const updateExpense = data => ({
     type: 'UPDATE_EXPENSE',
-    id: id
+    data: data
 })
 
 export const setVisibiltyFilter = filter => ({

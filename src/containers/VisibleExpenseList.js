@@ -6,10 +6,14 @@ import PropTypes from 'prop-types';
 
 class VisibleExpenseList extends Component {
 
-
-    handleEditRowClick = ( printThis ) => {
+    handleChangeCell = (event, expense) => {
         const { dispatch } = this.props;
-        dispatch(updateExpense(printThis));
+
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+        expense[name] = value;
+        dispatch(updateExpense(expense));
     }
     
     render() {
@@ -17,7 +21,8 @@ class VisibleExpenseList extends Component {
         return (
             <div>
                 <ExpenseList expenses = {expenses} 
-                             onHandleEditRowClick = {this.handleEditRowClick} />
+                             onHandleEditRowClick = {this.handleEditRowClick}
+                             handleChangeCell = {this.handleChangeCell} />
             </div>
         )
     } 

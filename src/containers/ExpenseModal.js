@@ -5,10 +5,15 @@ import {connect} from 'react-redux';
 
 class ExpenseModal extends React.Component {
     render() {
-        const expense = this.props
+        const expense = this.props.expenses
         return(
             <div>
-                <Expense expense = {expense}/>
+                {expense.map(expense => 
+                    <Expense
+                        key = {expense.id}
+                        expense = {expense}
+                    />
+                )}
             </div>
         )
     }
@@ -25,16 +30,17 @@ ExpenseModal.propTypes = {
         paymentCategory: PropTypes.string.isRequired,
         bank: PropTypes.string.isRequired,
         isCreditCard: PropTypes.bool.isRequired,
-        isPaid: PropTypes.bool.isRequired
-    }).isRequired
+        isPaid: PropTypes.bool.isRequired,
+        editing: PropTypes.bool.isRequired 
+    })
 }
 
 const getVisibleExpense = (expenses) => {
-    return expenses;
+    return expenses.filter(x => x.editing === true);
 }
 
 const mapStateToProps = (state ) => ({
-    expenses: getVisibleExpense(state.expenses, state.period, state.typeOfExpense)
+    expenses: getVisibleExpense(state.expenses)
 })
 
 const mapDispatchToProps = dispatch => ({

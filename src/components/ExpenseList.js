@@ -2,14 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Expense from './Expense';
 
-const ExpenseList = ({ expenses, onHandleEditRowClick }) => (
-    <table class="table">
+const ExpenseList = ({ expenses, handleChangeCell }) => (
+    <table className="table">
         <tbody>
             {expenses.map(expense => 
                 <Expense
                     key = {expense.id}
                     expense = {expense}
-                    onHandleEditRowClick = {onHandleEditRowClick}
+                    handleChangeCell = {(e) => handleChangeCell(e, expense)}
                 />
             )}
         </tbody>
@@ -29,8 +29,7 @@ ExpenseList.propTypes = {
       isCreditCard: PropTypes.bool.isRequired,
       isPaid: PropTypes.bool.isRequired
     }).isRequired).isRequired,
-
-    onHandleEditRowClick: PropTypes.func.isRequired
+    handleChangeCell: PropTypes.func.isRequired
 }
 
 export default ExpenseList
