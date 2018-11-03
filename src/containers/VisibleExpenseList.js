@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ExpenseList from '../components/ExpenseList'
-import { updateExpense } from '../actions';
+import { updateExpense, deleteExpense } from '../actions';
 import PropTypes from 'prop-types';
 
 class VisibleExpenseList extends Component {
@@ -15,13 +15,20 @@ class VisibleExpenseList extends Component {
         expense[name] = value;
         dispatch(updateExpense(expense));
     }
+
+    handleDeleteRow = (deleteExpenseId) => {
+        
+        const { dispatch } = this.props;
+
+        dispatch(deleteExpense(deleteExpenseId));
+    }
     
     render() {
         const { expenses } = this.props;
         return (
             <div>
                 <ExpenseList expenses = {expenses} 
-                             onHandleEditRowClick = {this.handleEditRowClick}
+                             handleDeleteRow = {this.handleDeleteRow}
                              handleChangeCell = {this.handleChangeCell} />
             </div>
         )

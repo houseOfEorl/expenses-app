@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Expense = ({ expense, onHandleEditRowClick, handleChangeCell  }) => (
+const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
     <tr>
         <td> {expense.id} </td>
         <td> <input type="text" name="name" defaultValue={expense.name} onChange={handleChangeCell} /> </td>
@@ -12,8 +12,7 @@ const Expense = ({ expense, onHandleEditRowClick, handleChangeCell  }) => (
         <td> <input type="text" name="bank" defaultValue={expense.bank} onChange={handleChangeCell} /> </td>
         <td> <input type="checkbox" name="isCreditCard" checked={expense.isCreditCard} onChange={handleChangeCell} />  </td>
         <td> <input type="checkbox" name="isPaid" checked={expense.isPaid} onChange={handleChangeCell} />  </td>
-        {/* <td> <input type="button" onClick = {() => onHandleEditRowClick(expense.id)} value="Edit" />  </td>
-        <td> <input type="button" onClick = {() => handleChangeCell} value="Save" />  </td> */}
+        <td> <input type="button" onClick = {handleDeleteRow} value="Delete" />  </td>
     </tr>
 )
 

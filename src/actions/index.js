@@ -11,6 +11,11 @@ export const updateExpense = data => ({
     data: data
 })
 
+export const deleteExpense = deleteExpenseId => ({
+    type: 'DELETE_EXPENSE',
+    deleteExpenseId
+})
+
 export const setVisibiltyFilter = filter => ({
     type: 'SET_VISIBILITY_FILTER',
     filter
