@@ -35,12 +35,22 @@ class VisibleExpenseList extends Component {
     } 
 }
 
-const getVisibleExpense = (expenses, filterPeriod, filterTypeOfExpense) => {
-    return expenses;
+const getVisibleExpense = (expenses, filter) => {
+
+    return expenses.filter(x => new Date(x.date).getMonth() ==  new Date(filter).getMonth() && new Date(x.date).getFullYear() ==  new Date(filter).getFullYear())
+
+    // switch (filter) {
+    //     case VisibilityFilters.SHOW_ALL:
+    //         return expenses
+    //     case VisibilityFilters.SHOW_PER_YEAR_MONTH:
+    //         return expenses.filter(x => x.isCreditCard)
+    //     default:
+    //         throw new Error('Unkown filter: ' + filter)
+    // }
 }
 
 const mapStateToProps = (state , store) => ({
-    expenses: getVisibleExpense(state.expenses, state.period, state.typeOfExpense)
+    expenses: getVisibleExpense(state.expenses, state.periodFilter)
 })
 
 const mapDispatchToProps = dispatch => ({

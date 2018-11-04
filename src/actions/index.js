@@ -16,7 +16,12 @@ export const deleteExpense = deleteExpenseId => ({
     deleteExpenseId
 })
 
-export const setVisibiltyFilter = filter => ({
+export const setVisibilityFilter = filter => ({
     type: 'SET_VISIBILITY_FILTER',
     filter
 })
+
+export const VisibilityFilters = {
+    SHOW_ALL: 'SHOW_ALL',
+    SHOW_PER_YEAR_MONTH: 'SHOW_PER_YEAR_MONTH'
+}
