@@ -37,7 +37,14 @@ class VisibleExpenseList extends Component {
 
 const getVisibleExpense = (expenses, filter) => {
 
-    return expenses.filter(x => new Date(x.date).getMonth() ==  new Date(filter).getMonth() && new Date(x.date).getFullYear() ==  new Date(filter).getFullYear())
+    const year = filter.slice(0, 4);
+    const month = filter.slice(5,7);
+    // console.log(filter.slice(0, 4));
+    // console.log(expenses.date);
+
+    //return expenses;
+    return expenses.filter(x => x.date.slice(0, 4) ==  year && x.date.slice(5,7) ==  month)
+    // return expenses.filter(x => new Date(x.date).getMonth() ==  new Date(filter).getMonth() && new Date(x.date).getFullYear() ==  new Date(filter).getFullYear())
 
     // switch (filter) {
     //     case VisibilityFilters.SHOW_ALL:
