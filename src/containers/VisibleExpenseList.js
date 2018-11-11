@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import ExpenseList from '../components/ExpenseList'
+import ExpenseList from '../components/ExpenseList';
+import ExpenseSum from '../components/ExpenseSum';
 import { updateExpense, deleteExpense } from '../actions';
 import PropTypes from 'prop-types';
 
@@ -10,7 +11,19 @@ class VisibleExpenseList extends Component {
         const { dispatch } = this.props;
 
         const target = event.target;
-        const value = target.type === 'checkbox' ? target.checked : target.value;
+        let value = "";
+        
+        switch(target.type) {
+            case 'checkbox':
+                value = target.checked;
+                break;
+            case 'number':
+                value = parseInt(target.value);
+                break;
+            default:
+                value = target.value
+        }
+
         const name = target.name;
         expense[name] = value;
         dispatch(updateExpense(expense));
@@ -27,6 +40,7 @@ class VisibleExpenseList extends Component {
         const { expenses } = this.props;
         return (
             <div>
+                <ExpenseSum expenses = {expenses} />
                 <ExpenseList expenses = {expenses} 
                              handleDeleteRow = {this.handleDeleteRow}
                              handleChangeCell = {this.handleChangeCell} />
@@ -42,7 +56,7 @@ const getVisibleExpense = (expenses, filter) => {
     // console.log(filter.slice(0, 4));
     // console.log(expenses.date);
 
-    //return expenses;
+    //TODO
     return expenses.filter(x => x.date.slice(0, 4) ==  year && x.date.slice(5,7) ==  month)
     // return expenses.filter(x => new Date(x.date).getMonth() ==  new Date(filter).getMonth() && new Date(x.date).getFullYear() ==  new Date(filter).getFullYear())
 

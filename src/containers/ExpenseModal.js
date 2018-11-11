@@ -25,7 +25,7 @@ ExpenseModal.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
         isCreditOrDebit: PropTypes.string.isRequired,
         paymentCategory: PropTypes.string.isRequired,
         bank: PropTypes.string.isRequired,

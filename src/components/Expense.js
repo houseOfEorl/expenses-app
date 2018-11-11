@@ -6,7 +6,7 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
         <td> {expense.id} </td>
         <td> <input type="text" name="name" defaultValue={expense.name} onChange={handleChangeCell} /> </td>
         <td> <input type="text" name="date" defaultValue={expense.date} onChange={handleChangeCell} /> </td>
-        <td> <input type="text" name="amount" defaultValue={expense.amount} onChange={handleChangeCell} /> </td>
+        <td> <input type="number" name="amount" defaultValue={expense.amount} onChange={handleChangeCell} /> </td>
         <td> <input type="text" name="isCreditOrDebit" defaultValue={expense.isCreditOrDebit} onChange={handleChangeCell} />  </td>
         <td> <input type="text" name="paymentCategory" defaultValue={expense.paymentCategory} onChange={handleChangeCell} /> </td>
         <td> <input type="text" name="bank" defaultValue={expense.bank} onChange={handleChangeCell} /> </td>
@@ -21,7 +21,7 @@ Expense.propTypes = {
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
-        amount: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
         isCreditOrDebit: PropTypes.string.isRequired,
         paymentCategory: PropTypes.string.isRequired,
         bank: PropTypes.string.isRequired,
