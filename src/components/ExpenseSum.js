@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 
 const ExpenseSum = ({expenses}) => (
     <div>
-        {expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}
+        Total: {expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}
+        Total Paid: {expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}
     </div>
 )
 
-ExpenseSum.PropTypes = {
+ExpenseSum.propTypes = {
     expenses: PropTypes.arrayOf(PropTypes.shape({
         id: PropTypes.number.isRequired,
         name: PropTypes.string.isRequired,

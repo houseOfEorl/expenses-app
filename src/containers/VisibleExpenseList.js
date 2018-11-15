@@ -57,7 +57,7 @@ const getVisibleExpense = (expenses, filter) => {
     // console.log(expenses.date);
 
     //TODO
-    return expenses.filter(x => x.date.slice(0, 4) ==  year && x.date.slice(5,7) ==  month)
+    return expenses.filter(x => x.date.slice(0, 4) ===  year && x.date.slice(5,7) ===  month)
     // return expenses.filter(x => new Date(x.date).getMonth() ==  new Date(filter).getMonth() && new Date(x.date).getFullYear() ==  new Date(filter).getFullYear())
 
     // switch (filter) {
