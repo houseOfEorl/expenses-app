@@ -1,9 +1,9 @@
 let nextExpenseId = 0;
 
-export const addExpense = ( data ) => ({
+export const addExpense = ( date ) => ({
     type: 'ADD_EXPENSE',
     id: nextExpenseId++,
-    payload: data
+    date
 })
 
 export const updateExpense = data => ({

@@ -6,7 +6,7 @@ const expenses = (state = [], action) => {
                 {
                     id: action.id,
                     name: "",
-                    date: new Date().toISOString().slice(0, 10),
+                    date: action.date,
                     amount: 0,
                     isCreditOrDebit: "",
                     paymentCategory: "",

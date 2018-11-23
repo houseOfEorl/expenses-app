@@ -1,10 +1,40 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+const tableStyle = {
+    width:"10%",
+  };
+
+const divStyle = {
+    fontSize: "70%",
+    display: 'flex', 
+    justifyContent: 'center',
+};  
+
 const ExpenseSum = ({expenses}) => (
-    <div>
-        Total: {expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}
-        Total Paid: {expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}
+    <div style={divStyle}>
+        <table style={tableStyle}>
+            <tr>
+                <th >Bank</th>
+                <th >Total</th>
+                <th >Total Paid</th>
+            </tr>
+            <tr>
+                <td>All</td>
+                <td>{expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                <td>{expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+            </tr>
+            <tr>
+                <td>Scotiabank</td>
+                <td>{expenses.filter(x => x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                <td>{expenses.filter(x => x.isPaid && x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+            </tr>
+            <tr>
+                <td>Tangerine</td>
+                <td>{expenses.filter(x => x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                <td>{expenses.filter(x => x.isPaid && x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+            </tr>
+        </table>
     </div>
 )
 

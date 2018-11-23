@@ -12,7 +12,7 @@ class ExpenseNavbar extends Component {
         this.handleSearchExpense = this.handleSearchExpense.bind(this);
         this.handleOnChangeSearchDate = this.handleOnChangeSearchDate.bind(this);
 
-        this.state = {searchDate: "2018-11-04"};
+        this.state = {searchDate: new Date().toISOString().slice(0, 10)};
     }
 
 
@@ -20,7 +20,7 @@ class ExpenseNavbar extends Component {
         e.preventDefault()
         const { dispatch } = this.props;
 
-        dispatch(addExpense());
+        dispatch(addExpense(this.state.searchDate));
     }
 
     handleOnChangeSearchDate(e) {
