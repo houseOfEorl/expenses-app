@@ -9,36 +9,30 @@ class ExpenseNavbar extends Component {
     constructor(props) {
         super(props)
         this.handleAddExpense = this.handleAddExpense.bind(this);
-        this.handleSearchExpense = this.handleSearchExpense.bind(this);
         this.handleOnChangeSearchDate = this.handleOnChangeSearchDate.bind(this);
-
-        this.state = {searchDate: new Date().toISOString().slice(0, 10)};
     }
-
 
     handleAddExpense(e) {
         e.preventDefault()
         const { dispatch } = this.props;
+        const { periodFilter } = this.props;
 
-        dispatch(addExpense(this.state.searchDate));
+        dispatch(addExpense(periodFilter));
     }
 
     handleOnChangeSearchDate(e) {
-        const newSearchDate = e.target.value;
-        this.setState({searchDate: newSearchDate});
-    }
 
-    handleSearchExpense(e) {
         e.preventDefault()
         const { dispatch } = this.props;
+        const newSearchDate = e.target.value;
 
-        dispatch(setVisibilityFilter(this.state.searchDate));
+        dispatch(setVisibilityFilter(newSearchDate));
     }
 
     render() {
         return (
             <div>
-                <ExpenseSearchBar handleSearchExpense={this.handleSearchExpense} handleOnChangeSearchDate={this.handleOnChangeSearchDate} />
+                <ExpenseSearchBar handleOnChangeSearchDate={this.handleOnChangeSearchDate} />
                 <button type="submit" onClick={this.handleAddExpense}>
                     Add
                 </button>
@@ -47,9 +41,22 @@ class ExpenseNavbar extends Component {
     }
 }
 
+
+const mapStateToProps = state => ({
+    periodFilter: state.periodFilter
+})
+
+const mapDispatchToProps = dispatch => ({
+    dispatch
+})
+
 ExpenseNavbar.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
 
-export default connect()(ExpenseNavbar)
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
+(ExpenseNavbar)

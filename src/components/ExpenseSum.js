@@ -14,26 +14,28 @@ const divStyle = {
 const ExpenseSum = ({expenses}) => (
     <div style={divStyle}>
         <table style={tableStyle}>
-            <tr>
-                <th >Bank</th>
-                <th >Total</th>
-                <th >Total Paid</th>
-            </tr>
-            <tr>
-                <td>All</td>
-                <td>{expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                <td>{expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-            </tr>
-            <tr>
-                <td>Scotiabank</td>
-                <td>{expenses.filter(x => x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                <td>{expenses.filter(x => x.isPaid && x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-            </tr>
-            <tr>
-                <td>Tangerine</td>
-                <td>{expenses.filter(x => x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                <td>{expenses.filter(x => x.isPaid && x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-            </tr>
+            <tbody>
+                <tr>
+                    <th >Bank</th>
+                    <th >Total</th>
+                    <th >Total Paid</th>
+                </tr>
+                <tr>
+                    <td>All</td>
+                    <td>{expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                </tr>
+                <tr>
+                    <td>Scotiabank</td>
+                    <td>{expenses.filter(x => x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid && x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                </tr>
+                <tr>
+                    <td>Tangerine</td>
+                    <td>{expenses.filter(x => x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid && x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 )
