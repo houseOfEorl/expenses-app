@@ -18,7 +18,7 @@ class VisibleExpenseList extends Component {
                 value = target.checked;
                 break;
             case 'number':
-                value = parseInt(target.value);
+                value = parseInt(target.value, 10);
                 break;
             default:
                 value = target.value
@@ -71,7 +71,7 @@ const getVisibleExpense = (expenses, filter) => {
 }
 
 const mapStateToProps = (state , store) => ({
-    expenses: getVisibleExpense(state.expenses, state.periodFilter)
+    expenses: getVisibleExpense(state.expenses.items, state.periodFilter)
 })
 
 const mapDispatchToProps = dispatch => ({

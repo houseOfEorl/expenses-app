@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { addExpense, setVisibilityFilter } from '../actions';
+import { addExpense, fetchExpenses } from '../actions';
 import PropTypes from 'prop-types';
 import ExpenseSearchBar from '../components/ExpenseSearchBar';
 
@@ -26,7 +26,7 @@ class ExpenseNavbar extends Component {
         const { dispatch } = this.props;
         const newSearchDate = e.target.value;
 
-        dispatch(setVisibilityFilter(newSearchDate));
+        dispatch(fetchExpenses(newSearchDate));
     }
 
     render() {
@@ -58,5 +58,4 @@ ExpenseNavbar.propTypes = {
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)
-(ExpenseNavbar)
+)(ExpenseNavbar)

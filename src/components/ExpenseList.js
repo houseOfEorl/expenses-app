@@ -10,7 +10,7 @@ const ExpenseList = ({ expenses, handleDeleteRow, handleChangeCell }) => (
             <td> Name </td>
             <td> Date </td>
             <td> Amount </td>
-            <td> isCreditOrDebit  </td>
+            {/* <td> isCreditOrDebit  </td> */}
             <td> paymentCategory </td>
             <td> bank </td>
             <td> isCreditCard  </td>
