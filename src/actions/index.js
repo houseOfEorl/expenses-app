@@ -61,7 +61,7 @@ export function fetchExpenses(period) {
       // This is not required by thunk middleware, but it is convenient for us.
       return callApi('Expenses/' + period, 'get', true)
         .then(
-          response => response.json(),
+          response => JSON.parse(response),
           // Do not use catch, because that will also catch any errors in the dispatch and resulting render, 
           // causing a loop of 'Unexpected batch number' errors.
           error => console.log('An error occurred.', error)

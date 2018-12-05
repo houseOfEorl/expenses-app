@@ -19,9 +19,9 @@ const ExpenseList = ({ expenses, handleDeleteRow, handleChangeCell }) => (
         </tr>
             {expenses.map(expense => 
                 <Expense
-                    key = {expense.id}
+                    key = {expense.ExpensesID}
                     expense = {expense}
-                    handleDeleteRow = {() => handleDeleteRow(expense.id)}
+                    handleDeleteRow = {() => handleDeleteRow(expense.ExpensesID)}
                     handleChangeCell = {(e) => handleChangeCell(e, expense)}
                 />
             )}

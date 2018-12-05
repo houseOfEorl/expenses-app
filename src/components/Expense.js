@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
     <tr>
-        <td> {expense.id} </td>
-        <td> <input type="text" name="name" defaultValue={expense.name} onChange={handleChangeCell} /> </td>
-        <td> <input type="date" name="date" defaultValue={expense.date} onChange={handleChangeCell} /> </td>
-        <td> <input type="number" name="amount" defaultValue={expense.amount} onChange={handleChangeCell} /> </td>
+        <td> {expense.ExpensesID} </td>
+        <td> <input type="text" name="Name" defaultValue={expense.Name} onChange={handleChangeCell} /> </td>
+        <td> <input type="date" name="ExpenseDate" defaultValue={expense.ExpenseDate} onChange={handleChangeCell} /> </td>
+        <td> <input type="number" name="Amount" defaultValue={expense.Amount} onChange={handleChangeCell} /> </td>
         {/* <td> 
             <select name="isCreditOrDebit" defaultValue={expense.isCreditOrDebit} onChange={handleChangeCell}>
                 <option value="">Select...</option>
@@ -15,7 +15,7 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
             </select>
         </td> */}
         <td> 
-            <select name="paymentCategory" defaultValue={expense.isCreditOrDebit} onChange={handleChangeCell}>
+            <select name="ExpensesTypeID" defaultValue={expense.ExpensesTypeID} onChange={handleChangeCell}>
                 <option value="">Select...</option>
                 <option value="1">basic</option>
                 <option value="2">investiment</option>
@@ -29,7 +29,7 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
             </select>
         </td>
         <td> 
-            <select name="bank" defaultValue={expense.isCreditOrDebit} onChange={handleChangeCell}>
+            <select name="Bank.Description" defaultValue={expense.Bank.Description} onChange={handleChangeCell}>
                 <option value="">Select...</option>
                 <option value="Scotiabank">Scotiabank</option>
                 <option value="Tangerine">Tangerine</option>

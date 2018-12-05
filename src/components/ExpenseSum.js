@@ -22,18 +22,18 @@ const ExpenseSum = ({expenses}) => (
                 </tr>
                 <tr>
                     <td>All</td>
-                    <td>{expenses.reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                    <td>{expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid).reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
                 </tr>
                 <tr>
                     <td>Scotiabank</td>
-                    <td>{expenses.filter(x => x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                    <td>{expenses.filter(x => x.isPaid && x.bank === "Scotiabank").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.filter(x => x.BankTypeID === 1).reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid && x.BankTypeID === 1).reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
                 </tr>
                 <tr>
                     <td>Tangerine</td>
-                    <td>{expenses.filter(x => x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
-                    <td>{expenses.filter(x => x.isPaid && x.bank === "Tangerine").reduce((accumulator, expense) => accumulator + expense.amount, 0)}</td>
+                    <td>{expenses.filter(x => x.BankTypeID === 2).reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
+                    <td>{expenses.filter(x => x.isPaid && x.BankTypeID === 2).reduce((accumulator, expense) => accumulator + expense.Amount, 0)}</td>
                 </tr>
             </tbody>
         </table>

@@ -11,9 +11,9 @@ const expenses = (state = initialState, action) => {
                     items: [
                         ...state.items,
                         {
-                            id: action.id,
+                            ExpensesID: action.ExpensesID,
                             name: "",
-                            date: action.date,
+                            ExpenseDate: action.ExpenseDate,
                             amount: 0,
                             isCreditOrDebit: "",
                             paymentCategory: "",
@@ -23,21 +23,22 @@ const expenses = (state = initialState, action) => {
                         }
                     ]
                 }
-        
-
+    
         case 'DELETE_EXPENSE':
             return {
                 ...state, 
-                items: state.items.filter(x => x.id !== action.deleteExpenseId)
+                items: state.items.filter(x => x.ExpensesID !== action.deleteExpenseId)
             }
+
         case 'UPDATE_EXPENSE':
             return {
                 ...state, 
-                items: state.items.map(x => x.id === action.data.id ? x = action.data : x)
+                items: state.items.map(x => x.ExpensesID === action.data.ExpensesID ? x = action.data : x)
             }
-        case ' RECEIVE_EXPENSES':
+            
+        case 'RECEIVE_EXPENSES':
             return Object.assign({}, state, {
-
+                items: action.expenses
             })
 
         default:
