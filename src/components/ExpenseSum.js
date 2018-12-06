@@ -42,13 +42,13 @@ const ExpenseSum = ({expenses}) => (
 
 ExpenseSum.propTypes = {
     expenses: PropTypes.arrayOf(PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        amount: PropTypes.number.isRequired,
-        isCreditOrDebit: PropTypes.string.isRequired,
-        paymentCategory: PropTypes.string.isRequired,
-        bank: PropTypes.string.isRequired,
+        ExpensesID: PropTypes.number.isRequired,
+        Name: PropTypes.string.isRequired,
+        ExpenseDate: PropTypes.string.isRequired,
+        Amount: PropTypes.number.isRequired,
+        CreditOrDebit: PropTypes.string.isRequired,
+        ExpensesTypeID: PropTypes.number.isRequired,
+        BankTypeID: PropTypes.number.isRequired,
         isCreditCard: PropTypes.bool.isRequired,
         isPaid: PropTypes.bool.isRequired
       }).isRequired).isRequired

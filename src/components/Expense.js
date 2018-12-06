@@ -5,7 +5,7 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
     <tr>
         <td> {expense.ExpensesID} </td>
         <td> <input type="text" name="Name" defaultValue={expense.Name} onChange={handleChangeCell} /> </td>
-        <td> <input type="date" name="ExpenseDate" defaultValue={expense.ExpenseDate} onChange={handleChangeCell} /> </td>
+        <td> <input type="date" name="ExpenseDate" defaultValue={expense.ExpenseDate.substring(0, 10)} onChange={handleChangeCell} /> </td>
         <td> <input type="number" name="Amount" defaultValue={expense.Amount} onChange={handleChangeCell} /> </td>
         {/* <td> 
             <select name="isCreditOrDebit" defaultValue={expense.isCreditOrDebit} onChange={handleChangeCell}>
@@ -29,10 +29,10 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
             </select>
         </td>
         <td> 
-            <select name="Bank.Description" defaultValue={expense.Bank.Description} onChange={handleChangeCell}>
+            <select name="BankTypeID" defaultValue={expense.BankTypeID} onChange={handleChangeCell}>
                 <option value="">Select...</option>
-                <option value="Scotiabank">Scotiabank</option>
-                <option value="Tangerine">Tangerine</option>
+                <option value="1">Scotiabank</option>
+                <option value="2">Tangerine</option>
             </select>
         </td>
         <td> <input type="checkbox" name="isCreditCard" checked={expense.isCreditCard} onChange={handleChangeCell} />  </td>
@@ -43,13 +43,13 @@ const Expense = ({ expense, handleDeleteRow, handleChangeCell  }) => (
 
 Expense.propTypes = {
     expense: PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        date: PropTypes.string.isRequired,
-        amount: PropTypes.number.isRequired,
-        isCreditOrDebit: PropTypes.string.isRequired,
-        paymentCategory: PropTypes.string.isRequired,
-        bank: PropTypes.string.isRequired,
+        ExpensesID: PropTypes.number.isRequired,
+        Name: PropTypes.string.isRequired,
+        ExpenseDate: PropTypes.string.isRequired,
+        Amount: PropTypes.number.isRequired,
+        CreditOrDebit: PropTypes.string.isRequired,
+        ExpensesTypeID: PropTypes.number.isRequired,
+        BankTypeID: PropTypes.number.isRequired,
         isCreditCard: PropTypes.bool.isRequired,
         isPaid: PropTypes.bool.isRequired
     }).isRequired

@@ -22,6 +22,7 @@ class VisibleExpenseList extends Component {
                 break;
             case 'select-one':
                 value = parseInt(target.value, 10);
+                break;
             default:
                 value = target.value
         }
